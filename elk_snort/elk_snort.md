@@ -6,7 +6,7 @@ Primero hacemos la instalacion en la maquina del paquete de snort.
 ```bash
 sudo apt-get install snort
 ```
-![instalacion de snort](/images/instalacion%20snort.png)
+![instalacion de snort](images/instalacion%20snort.png)
 
 Durante la instalación se pregunta por el intervalo de direcciones para la red local (256): 192.168.1.0/24
 
@@ -15,7 +15,7 @@ Una vez instalado comprobamos que se encuentra activo.
 ```bash
 sudo systemctl status snort
 ```
-![estado de snort](/images/status%20snort.PNG)
+![estado de snort](images/status%20snort.PNG)
 
 Detenemos snort:
 ```bash
@@ -28,11 +28,11 @@ Editamos el fichero de configuración de Snort:
 sudo nano /etc/snort/snort.conf
 ```
 
-![configuracion de snort](/images/config%20snort.PNG)
+![configuracion de snort](images/config%20snort.PNG)
 
 Localizamos el apartado “syslog” y cambiamos las facilidades de alerta
 
-![configuracion de rsyslog](/images/config%20syslog.PNG)
+![configuracion de rsyslog](images/config%20syslog.PNG)
 
 Rearrancamos rsyslog: 
 
@@ -46,7 +46,7 @@ Comprobamos su estado:
 sudo systemctl status rsyslog
 ```
 
-![status de rsyslog](/images/status%20rsyslog.png)
+![status de rsyslog](images/status%20rsyslog.png)
 
 Ahora ya podemos arrancar snort: 
 
@@ -80,7 +80,7 @@ para ver si se detectan:
 tail -f /var/log/snort_alerts.log
 ```
 
-![tail de snort_alerts.log](/images/tail_rsyslog.png)
+![tail de snort_alerts.log](images/tail_rsyslog.png)
 
 Si todo ha sido satisfactorio, detenemos Snort y comprobamos que se ha parado antes de proseguir:
 
@@ -112,7 +112,7 @@ Editamos el fichero de configuración de elasticsearch:
 sudo nano /etc/elasticsearch/elasticsearch.yml
 ```
 
-![configuracion de elasticsearch](/images/config%20elastic.PNG)
+![configuracion de elasticsearch](images/config%20elastic.PNG)
 
 Arrancamos elasticsearch y consultamos su estado para comprobar si todo ha ido correctamente:
 
@@ -121,7 +121,7 @@ sudo systemctl start elasticsearch
 sudo systemctl status elasticsearch
 ```
 
-![estado de elasticsearch](/images/status%20elasticsearch.PNG)
+![estado de elasticsearch](images/status%20elasticsearch.PNG)
 
 Antes de proseguir, detenemos elasticsearch y comprobamos que está parado:
 
@@ -145,7 +145,7 @@ Editamos el fichero de configuración de logstash:
 sudo nano /etc/logstash/logstash.yml
 ```
 
-![configuracion de logstash](/images/config%20logstash.PNG)
+![configuracion de logstash](images/config%20logstash.PNG)
 
 Arrancamos logstash y chequeamos su status:
 
@@ -154,7 +154,7 @@ sudo systemctl start logstash
 sudo systemctl status logstash
 ```
 
-![configuracion de logstash](/images/status%20logstash.PNG)
+![configuracion de logstash](images/status%20logstash.PNG)
 
 En nuestro caso, con nuestra solución no tenemos activo logstash
 
@@ -174,7 +174,7 @@ Configurar Kibana editando el fichero siguiente:
 sudo nano /etc/kibana/kibana.yml
 ```
 
-![configuracion de kibana](/images/config%20kibana.PNG)
+![configuracion de kibana](images/config%20kibana.PNG)
 
 Cambiamos el server.host:
 
@@ -189,7 +189,7 @@ sudo systemctl start kibana
 sudo systemctl status kibana
 ```
 
-![estado de kibana](/images/status%20kibana.PNG)
+![estado de kibana](images/status%20kibana.PNG)
 
 
 ### Últimos pasos
@@ -225,7 +225,7 @@ Por ultimo accedemos a Kibana via web.
 
 Añadimos la integracion de snort
 
-![intregracion de snort](/images/integracion_snort.PNG)
+![intregracion de snort](images/integracion_snort.PNG)
 
 Instalamos el agente de Elastic
 
@@ -238,21 +238,21 @@ sudo ./elastic-agent install --url=https://192.168.1.101:8220 --enrollment-token
 
 El archivo de configuración queda asi: 
 
-![configuracion de agent](/images/config%20agent.PNG)
+![configuracion de agent](images/config%20agent.PNG)
 
 Después de un rato podremos ver como empiezan a aparecer datos en las distintas graficas del servicio.
 
 ### Host overview
-![configuracion de agent](/images/panel1.png)
-![configuracion de agent](/images/panel5.png)
-![configuracion de agent](/images/panel6.png)
+![configuracion de agent](images/panel1.png)
+![configuracion de agent](images/panel5.png)
+![configuracion de agent](images/panel6.png)
 
 ### Agent metrics
-![configuracion de agent](/images/panel2.png)
+![configuracion de agent](images/panel2.png)
 
 ### Discover
-![configuracion de agent](/images/panel3.png)
+![configuracion de agent](images/panel3.png)
 
 ### Syslog Dashboard
-![configuracion de agent](/images/panel4.png)
+![configuracion de agent](images/panel4.png)
 
